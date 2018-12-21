@@ -1,11 +1,16 @@
 package selectionprocess.berlinclockkata;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,7 +48,20 @@ public class BerlinClockActivity extends Activity implements BerlinClockView {
     private void initalizeViews() {
         etDigitalTimeInput.addTextChangedListener(digitalTimeTextWather);
         etBerlinTimeInput.addTextChangedListener(berlinTimeTextWather);
+        tvBerlinTimeOutput.setOnClickListener(textViewClick);
+        tvDigitalTimeOutput.setOnClickListener(textViewClick);
     }
+
+    private View.OnClickListener textViewClick = v -> {
+        if (v instanceof TextView) {
+            TextView view = (TextView) v;
+            String text = view.getText().toString();
+            ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText(text, text);
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(getApplicationContext(), text + " copied", Toast.LENGTH_SHORT).show();
+        }
+    };
 
     private TextWatcher digitalTimeTextWather = new TextWatcher() {
         @Override
