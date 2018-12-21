@@ -6,13 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".BerlinClockActivity">
 
+    <EditText
+        style="@style/InputEditText"
+        android:id="@+id/etDigitalTimeInput"
+        android:digits="@string/valid_digital_time_input_characters"
+        android:maxLength="8"
+        android:hint="@string/hint_digital_time_input"/>
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        style="@style/OutputTextView"
+        android:id="@+id/tvBerlinTimeOutput"
+        app:layout_constraintTop_toBottomOf="@id/etDigitalTimeInput" />
+
+    <EditText
+        style="@style/InputEditText"
+        android:id="@+id/etBerlinTimeInput"
+        android:hint="@string/hint_berlin_time_input"
+        android:digits="@string/valid_berlin_time_input_characters"
+        android:maxLength="24"
+        app:layout_constraintTop_toBottomOf="@id/tvBerlinTimeOutput"/>
+
+    <TextView
+        style="@style/OutputTextView"
+        android:id="@+id/tvDigitalTimeOutput"
+        app:layout_constraintTop_toBottomOf="@id/etBerlinTimeInput" />
+
 
 </android.support.constraint.ConstraintLayout>

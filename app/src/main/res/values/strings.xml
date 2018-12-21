@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">BerlinClockKata</string>
+    <string name="app_name">Berlin Clock Kata</string>
+
+    <string name="hint_digital_time_input">Time in HH:mm:ss format</string>
+    <string name="valid_digital_time_input_characters">0123456789:</string>
+
+    <string name="hint_berlin_time_input">Time in Berlin format</string>
+    <string name="valid_berlin_time_input_characters">YOR</string>
 </resources>

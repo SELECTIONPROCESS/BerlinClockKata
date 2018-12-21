@@ -6,6 +6,13 @@ public class BerlinTimeConverter implements TimeConverter {
 
     private static final String validDigitalTimeRegex = "(2[0-3]|[0-1][0-9]):[0-5][0-9]:[0-5][0-9]";
 
+    /**
+     * Returns berlin time equivalent of input digital time.
+     * If argument berlin time is not valid, returns empty string.
+     *
+     * @param digitalTime time in digital format (HH:mm:ss)
+     * @return berlin time equivalent of input digital time.
+     */
     @Override
     public String convert(String digitalTime) {
 
@@ -38,6 +45,13 @@ public class BerlinTimeConverter implements TimeConverter {
         return getFormattedString(4, remainder, LAMP_YELLOW, LAMP_OFF);
     }
 
+    /**
+     * Returns five minutes row of Berlin time.
+     * String is filled with 'Y' from start to off lamp, but
+     * each third character is filled with 'R'.
+     *
+     * @param minute converts this into five minutes row
+     */
     private String getFiveMinutesRow(int minute) {
         int quotient = getQuotient(minute, MULTIPLIER);
         StringBuilder sb = new StringBuilder(11);
@@ -67,6 +81,16 @@ public class BerlinTimeConverter implements TimeConverter {
         return getFormattedString(4, remainder, LAMP_RED, LAMP_OFF);
     }
 
+    /**
+     * Returns a string with desired length.
+     * First fillLength characters of string is filled with fillChar,
+     * Reminder characters are filled with reminderChar.
+     *
+     * @param totalLength length of desired string
+     * @param fillLength length of desired fillChar
+     * @param fillChar fills first fillLength characters with this
+     * @param reminderChar fills remaning characters with this
+     */
     private String getFormattedString(int totalLength, int fillLength, char fillChar, char reminderChar) {
         StringBuilder sb = new StringBuilder(totalLength);
         int i = 0;
