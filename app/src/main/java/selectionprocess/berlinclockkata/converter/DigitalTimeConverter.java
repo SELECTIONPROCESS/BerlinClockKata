@@ -2,22 +2,9 @@ package selectionprocess.berlinclockkata.converter;
 
 import java.util.Locale;
 
+import static selectionprocess.berlinclockkata.converter.TimeConstants.*;
+
 public class DigitalTimeConverter implements TimeConverter {
-
-    private static final char LAMP_YELLOW = 'Y';
-    private static final char LAMP_RED = 'R';
-    private static final char LAMP_OFF = 'O';
-
-    private static final int FIVE_HOURS_FROM = 1;
-    private static final int FIVE_HOURS_TO = 5;
-    private static final int SINGLE_HOURS_FROM = 5;
-    private static final int SINGLE_HOURS_TO = 9;
-    private static final int FIVE_MINUTES_FROM = 9;
-    private static final int FIVE_MINUTES_TO = 20;
-    private static final int SINGLE_MINUTES_FROM = 20;
-    private static final int SINGLE_MINUTES_TO = 24;
-
-    private static final int MULTIPLIER = 5;
 
     /**
      * Returns digital time equivalent of input berlin time.
